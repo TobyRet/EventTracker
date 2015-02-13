@@ -1,25 +1,27 @@
 require 'sinatra'
+require 'slim'
+require 'sinatra/reloader' if development?
 
 set :public_folder, 'assets'
 
 get '/' do 
 	@title = "Home | Old Empire"
-	erb :home
+	slim :home
 end
 
 get '/events' do
 	@title = "Events | Old Empire"
-	erb :events
+	slim :events
 end
 
 get '/blog' do
 	@title = "Blog | Old Empire"
-	erb :blog
+	slim :blog
 end
 
 not_found do
 	status 404
-	erb :not_found #To do, create views 
+	slim :not_found #To do, create views 
 end
 
 
