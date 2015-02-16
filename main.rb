@@ -1,27 +1,38 @@
 require 'sinatra'
 require 'slim'
+require 'json'
 require 'sinatra/reloader' if development?
 
 set :public_folder, 'assets'
 
 get '/' do 
-	@title = "Home | Old Empire"
+	@title = "Home | Event Tracker"
 	slim :home
 end
 
 get '/events' do
-	@title = "Events | Old Empire"
+	@title = "Events | Event Tracker"
 	slim :events
 end
 
+get '/event/new' do
+	slim :new_event
+end
+
+post '/event' do
+	status 200	
+	content_type :json
+	{ redirect_url: "/events" }.to_json
+end
+
 get '/blog' do
-	@title = "Blog | Old Empire"
+	@title = "Blog | Event Tracker"
 	slim :blog
 end
 
 not_found do
 	status 404
-	slim :not_found #To do, create views 
+	slim :not_found 
 end
 
 

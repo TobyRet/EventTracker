@@ -4,6 +4,7 @@ GEM
     backports (3.6.4)
     daemons (1.1.9)
     eventmachine (1.0.7)
+    json (1.8.2)
     multi_json (1.10.1)
     rack (1.6.0)
     rack-protection (1.5.3)
@@ -35,6 +36,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  json
   sinatra
   sinatra-contrib
   slim
