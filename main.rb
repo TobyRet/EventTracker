@@ -11,7 +11,7 @@ get '/' do
 end
 
 get '/events' do
-	@title = "Events | Event Tracker"
+	@title = "Events | Event Tracker"    
 	slim :events
 end
 
@@ -19,8 +19,7 @@ get '/event/new' do
 	slim :new_event
 end
 
-post '/event' do
-	status 200	
+post '/event' do	
 	content_type :json
 	{ redirect_url: "/events" }.to_json
 end
