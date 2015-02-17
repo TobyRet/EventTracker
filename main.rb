@@ -21,6 +21,9 @@ end
 
 post '/event' do	
 	content_type :json
+	@eventDetails = JSON.parse(request.body.read)
+	puts @eventDetails
+	puts @eventDetails['name']
 	{ redirect_url: "/events" }.to_json
 end
 
